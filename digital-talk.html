@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字对话 - 银龄之悦</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 页面顶部导航栏 -->
+    <header>
+        <nav>
+            <div class="logo">银龄之悦</div>
+            
+            <div class="nav-tools">
+                <a href="index.html" data-lang="home">首页</a>
+                <a href="ai-chat.html" data-lang="ai-chat">AI聊天</a>
+                <a href="voice-clone.html" data-lang="voice-clone">音色克隆</a>
+                <a href="digital-talk.html" class="current" data-lang="digital-talk">数字对话</a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <span class="current-lang">简体中文</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <ul class="language-dropdown">
+                        <li><a href="#" data-lang="zh" class="active">简体中文</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="digital-talk-container">
+        <h1 data-lang="digital-title">数字对话</h1>
+        <p data-lang="digital-intro">与数字形象互动</p>
+        
+        <div class="digital-controls">
+            <button data-lang="select-avatar">选择形象</button>
+            <button data-lang="start-interaction">开始互动</button>
+            <button data-lang="customize">自定义设置</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html> 

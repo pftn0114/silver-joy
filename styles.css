@@ -1,0 +1,1046 @@
+/* 全局重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基础页面样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 背景网格动画效果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(26, 26, 46, 0.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 26, 46, 0.8) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -1;
+    animation: gridMove 20s linear infinite;
+}
+
+/* 背景粒子效果 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at center, #ffffff03 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    animation: particleFloat 15s linear infinite;
+}
+
+/* 动画关键帧定义 */
+@keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(30px); }
+}
+
+@keyframes particleFloat {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(25px, 25px); }
+}
+
+/* 导航栏样式 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(28, 30, 44, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+}
+
+/* 主容器调整，为固定导航栏留出空间 */
+main {
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+}
+
+/* 导航布局 */
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Logo样式 */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* 导航工具栏 */
+.nav-tools {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-tools a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 5px 0;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.nav-tools a:hover {
+    color: #fff;
+}
+
+.nav-tools a.current {
+    color: #4d9fff;
+}
+
+.nav-tools a.current::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4d9fff;
+    border-radius: 2px;
+}
+
+/* 语言选择器样式 */
+.language-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.language-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 5px 0;
+    min-width: 120px;
+}
+
+.language-selector:hover .language-dropdown {
+    display: block;
+}
+
+.language-dropdown a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.language-dropdown a:hover {
+    background-color: #f5f5f5;
+}
+
+.language-dropdown a.active {
+    background-color: #e8e8e8;
+    font-weight: bold;
+}
+
+.arrow {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+/* 聊天容器样式 */
+.chat-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+}
+
+/* 欢迎屏幕样式 */
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+    padding: 20px;
+}
+
+/* AI头像样式 */
+.ai-avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
+}
+
+/* 消息样式 */
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-message {
+    align-items: flex-end;
+}
+
+.ai-message {
+    align-items: flex-start;
+}
+
+.message-content {
+    max-width: 85%;
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 代码块样式 */
+.code-block {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    line-height: 1.5;
+    font-size: 0.95em;
+    border-left: 4px solid #4d9fff;
+}
+
+/* 输入区域样式 */
+.chat-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: rgba(28, 30, 44, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* 修改新建对话按钮样式 */
+.new-chat-btn {
+    background: rgba(255, 255, 255, 0.07);
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.new-chat-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* 修改输入框容器样式 */
+.input-box {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    background: rgba(37, 39, 54, 0.95);
+    border-radius: 8px;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 修改输入框样式 */
+.input-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px;
+    font-size: 16px;
+}
+
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* 修改发送按钮样式 */
+.send-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 修改发送按钮图标样式 */
+.send-btn .icon {
+    color: #5d9fff;
+    font-size: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    transform: translateX(0);
+}
+
+/* 增强悬浮动画效果 */
+.send-btn:hover .icon {
+    color: #7db5ff;
+    transform: translateX(4px);
+    text-shadow: 0 0 8px rgba(93, 159, 255, 0.5);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 10px;
+    }
+
+    .message-content {
+        max-width: 90%;
+    }
+
+    .nav-tools a {
+        margin: 0 10px;
+    }
+}
+
+/* 动画效果 */
+@keyframes rotateRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseCore {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* 首页样式 */
+.home-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.hero-section .subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.feature-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.feature-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #6e8efb, #4a6cf7);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-btn:hover {
+    transform: translateY(-3px);
+}
+
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #666;
+}
+
+/* 音色克隆页面样式 */
+.voice-clone-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.voice-clone-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.voice-recording-section {
+    margin-top: 2rem;
+}
+
+.recording-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.record-btn {
+    padding: 1rem 2rem;
+    background: #ff4b4b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.record-btn:hover {
+    background: #e63e3e;
+}
+
+.voice-visualizer {
+    width: 100%;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.voice-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.control-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* 数字对话页面样式 */
+.digital-talk-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.digital-talk-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-selection {
+    margin-top: 2rem;
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.avatar-option {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.avatar-option:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.interaction-area {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.digital-avatar {
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.interaction-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.interaction-controls button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #4a6cf7;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.interaction-controls button:hover {
+    background: #3955d8;
+}
+
+/* 通用样式 */
+.description {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .feature-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .features-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 在现有样式的基��上添加以下内容 */
+
+/* AI聊天页面特定样式 */
+.chat-container {
+    max-width: 1000px;
+    margin: 80px auto 0;
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-screen {
+    text-align: center;
+    padding: 60px 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin: 20px 0;
+}
+
+.welcome-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(77, 159, 255, 0.5);
+}
+
+.welcome-screen p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 音色克隆页面特定样式 */
+.voice-clone-container {
+    max-width: 1000px;
+    margin: 80px auto 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.voice-clone-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(77, 159, 255, 0.5);
+}
+
+.voice-clone-container p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+.voice-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.voice-controls button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4d9fff, #4a6cf7);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.voice-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(77, 159, 255, 0.3);
+}
+
+/* 数字对话页面特定样式 */
+.digital-talk-container {
+    max-width: 1000px;
+    margin: 80px auto 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.digital-talk-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(77, 159, 255, 0.5);
+}
+
+.digital-talk-container p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+.digital-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.digital-controls button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4d9fff, #4a6cf7);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.digital-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(77, 159, 255, 0.3);
+}
+
+/* 聊天消息样式优化 */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+
+.message {
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+
+.user-message {
+    margin-left: auto;
+}
+
+.message-content {
+    padding: 15px 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: #fff;
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, #4d9fff, #4a6cf7);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .voice-controls,
+    .digital-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .welcome-screen h1 {
+        font-size: 2rem;
+    }
+
+    .welcome-screen p {
+        font-size: 1rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-screen,
+.voice-controls,
+.digital-controls {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* 美化滚动条 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(77, 159, 255, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(77, 159, 255, 0.7);
+}
+
+/* 在现有样式后添加以下内容 */
+
+.voice-clone-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.upload-container {
+    border: 2px dashed #4a90e2;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: rgba(74, 144, 226, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-container.dragover {
+    background-color: rgba(74, 144, 226, 0.2);
+    border-color: #2171c7;
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.upload-icon {
+    font-size: 3rem;
+}
+
+.upload-hint {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.recording-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.control-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.control-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.control-btn:hover:not(:disabled) {
+    background-color: #357abd;
+}
+
+.timer {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.recorded-audio {
+    margin: 2rem 0;
+}
+
+/* 在现有样式后添加 */
+
+/* 步骤指示器样式 */
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 0 2rem;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 0.5rem;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+}
+
+.step.active {
+    background: rgba(74, 144, 226, 0.2);
+    color: #fff;
+}
+
+.step.completed {
+    background: rgba(74, 144, 226, 0.4);
+    color: #fff;
+}
+
+/* 训练状态样式 */
+.training-status {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4a90e2, #357abd);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* 文本输入区域样式 */
+.text-input-area {
+    margin: 2rem 0;
+}
+
+.text-input-area textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.text-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.char-count {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* 语音设置样式 */
+.voice-settings {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.setting-item label {
+    min-width: 80px;
+    color: #fff;
+}
+
+.setting-item input[type="range"] {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    -webkit-appearance: none;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-value {
+    min-width: 40px;
+    text-align: right;
+    color: #fff;
+}
+
+/* 按钮样式 */
+.primary-btn {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

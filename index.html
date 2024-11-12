@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>银龄之悦 - 首页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 页面顶部导航栏 -->
+    <header>
+        <nav>
+            <!-- 网站Logo -->
+            <div class="logo">银龄之悦</div>
+            
+            <!-- 导航菜单 -->
+            <div class="nav-tools">
+                <a href="index.html" class="current" data-lang="home">首页</a>
+                <a href="ai-chat.html" data-lang="ai-chat">AI聊天</a>
+                <a href="voice-clone.html" data-lang="voice-clone">音色克隆</a>
+                <a href="digital-talk.html" data-lang="digital-talk">数字对话</a>
+            </div>
+            
+            <!-- 右侧语言选择器 -->
+            <div class="nav-right">
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <span class="current-lang">简体中文</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <ul class="language-dropdown">
+                        <li><a href="#" data-lang="zh" class="active">简体中文</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 替换主要内容区域 -->
+    <main class="home-container">
+        <!-- 首页欢迎区域 -->
+        <section class="hero-section">
+            <h1 data-lang="site-title">银龄之悦</h1>
+            <p class="subtitle" data-lang="hero-subtitle">智能科技，助力银龄生活</p>
+            <div class="feature-buttons">
+                <a href="ai-chat.html" class="feature-btn" data-lang="start-ai-chat">开始AI对话</a>
+                <a href="voice-clone.html" class="feature-btn" data-lang="try-voice-clone">体验声音克隆</a>
+                <a href="digital-talk.html" class="feature-btn" data-lang="explore-digital-talk">探索数字对话</a>
+            </div>
+        </section>
+
+        <!-- 功能介绍区域 -->
+        <section class="features-section">
+            <div class="feature-card">
+                <h3 data-lang="ai-chat">AI聊天</h3>
+                <p data-lang="ai-chat-desc">智能对话助手，随时为您解答疑惑</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-lang="voice-clone">音色克隆</h3>
+                <p data-lang="voice-clone-desc">保存珍贵声音，传承美好回忆</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-lang="digital-talk">数字对话</h3>
+                <p data-lang="digital-talk-desc">创新交互体验，连接智慧生活</p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html> 

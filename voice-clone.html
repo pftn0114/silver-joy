@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>银龄之悦 - 音色克隆</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 页面顶部导航栏 -->
+    <header>
+        <nav>
+            <div class="logo">银龄之悦</div>
+            <div class="nav-tools">
+                <a href="index.html" data-lang="home">首页</a>
+                <a href="ai-chat.html" data-lang="ai-chat">AI聊天</a>
+                <a href="voice-clone.html" class="current" data-lang="voice-clone">音色克隆</a>
+                <a href="digital-talk.html" data-lang="digital-talk">数字对话</a>
+            </div>
+            <div class="nav-right">
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <span class="current-lang">简体中文</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <ul class="language-dropdown">
+                        <li><a href="#" data-lang="zh" class="active">简体中文</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="voice-clone-container">
+        <h1>音色克隆</h1>
+        <p class="subtitle">保存和复制您最爱的声音</p>
+
+        <!-- 步骤指示器 -->
+        <div class="steps-indicator">
+            <div class="step active">1. 上传声音</div>
+            <div class="step">2. 训练模型</div>
+            <div class="step">3. 生成语音</div>
+        </div>
+
+        <!-- 第一步：声音上传区域 -->
+        <section class="step-section" id="stepUpload">
+            <div class="upload-container" id="dropZone">
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p>拖放音频文件到此处或点击上传</p>
+                    <p class="upload-hint">支持的格式: WAV, MP3, M4A</p>
+                    <p class="upload-hint">建议使用10-30秒的清晰语音</p>
+                    <input type="file" id="fileInput" accept=".wav,.mp3,.m4a" hidden>
+                </div>
+            </div>
+
+            <div class="recording-controls">
+                <button id="startRecord" class="control-btn">开始录音</button>
+                <button id="stopRecord" class="control-btn" disabled>停止录音</button>
+                <button id="saveRecord" class="control-btn" disabled>保存录音</button>
+            </div>
+
+            <div class="timer" id="recordingTimer">00:00</div>
+            
+            <div class="recorded-audio" id="recordedAudioContainer" style="display: none;">
+                <h3>已录制的声音</h3>
+                <audio id="recordedAudio" controls></audio>
+            </div>
+        </section>
+
+        <!-- 第二步：模型训练区域 -->
+        <section class="step-section" id="stepTrain" style="display: none;">
+            <div class="training-status">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="status-text">正在训练模型...</p>
+            </div>
+        </section>
+
+        <!-- 第三步：语音生成区域 -->
+        <section class="step-section" id="stepGenerate" style="display: none;">
+            <div class="text-input-area">
+                <textarea 
+                    id="inputText" 
+                    placeholder="请输入要转换的文字内容..."
+                    rows="4"
+                ></textarea>
+                <div class="text-controls">
+                    <span class="char-count">0/500</span>
+                </div>
+            </div>
+
+            <div class="voice-settings">
+                <div class="setting-item">
+                    <label>语速调节</label>
+                    <input type="range" id="speedControl" min="0.5" max="2" step="0.1" value="1">
+                    <span class="setting-value">1.0</span>
+                </div>
+                <div class="setting-item">
+                    <label>音调调节</label>
+                    <input type="range" id="pitchControl" min="0.5" max="2" step="0.1" value="1">
+                    <span class="setting-value">1.0</span>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="primary-btn">生成语音</button>
+
+            <div class="generated-result" style="display: none;">
+                <h3>生成的语音</h3>
+                <audio id="generatedAudio" controls></audio>
+                <button id="downloadBtn" class="secondary-btn">下载语音</button>
+            </div>
+        </section>
+    </main>
+    
+    <script src="voice-clone.js"></script>
+</body>
+</html> 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI聊天 - 银龄之悦</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 页面顶部导航栏 -->
+    <header>
+        <nav>
+            <div class="logo">银龄之悦</div>
+            
+            <div class="nav-tools">
+                <a href="index.html" data-lang="home">首页</a>
+                <a href="ai-chat.html" class="current" data-lang="ai-chat">AI聊天</a>
+                <a href="voice-clone.html" data-lang="voice-clone">音色克隆</a>
+                <a href="digital-talk.html" data-lang="digital-talk">数字对话</a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <span class="current-lang">简体中文</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <ul class="language-dropdown">
+                        <li><a href="#" data-lang="zh" class="active">简体中文</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="chat-container">
+        <!-- 欢迎屏幕 -->
+        <div class="welcome-screen">
+            <h1 data-lang="welcome-title">欢迎使用AI助手</h1>
+            <p data-lang="welcome-subtitle">有什么可以帮您的吗？</p>
+        </div>
+
+        <!-- 聊天界面 -->
+        <div class="chat-input-container">
+            <button class="new-chat-btn" data-lang="new-chat">新建对话</button>
+            <div class="input-box">
+                <input type="text" data-lang-placeholder="chat-placeholder" placeholder="输入您想说的话...">
+                <button class="send-btn" data-lang="send">发送</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html> 

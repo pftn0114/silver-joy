@@ -1,0 +1,31 @@
+const zh = {
+    "home": "首页",
+    "ai-chat": "AI聊天",
+    "voice-clone": "音色克隆",
+    "digital-talk": "数字对话",
+    "current-language": "简体中文",
+    "site-title": "银龄之悦",
+    "hero-subtitle": "智能科技，助力银龄生活",
+    "start-ai-chat": "开始AI对话",
+    "try-voice-clone": "体验声音克隆",
+    "explore-digital-talk": "探索数字对话",
+    "ai-chat-desc": "智能对话助手，随时为您解答疑惑",
+    "voice-clone-desc": "保存珍贵声音，传承美好回忆",
+    "digital-talk-desc": "创新交互体验，连接智慧生活",
+    "welcome-title": "AI智能助手",
+    "welcome-subtitle": "让我们开始对话吧",
+    "new-chat": "新建对话",
+    "start-recording": "开始录音",
+    "play": "播放",
+    "save": "保存",
+    "clear": "清除",
+    "select-avatar": "选择您的数字形象",
+    "start-interaction": "开始互动",
+    "customize-avatar": "自定义形象",
+    "input-placeholder": "输入您的问题...",
+    "thinking": "正在思考...",
+    "error-message": "抱歉，发生了错误，请稍后再试。",
+    "loading": "加载中..."
+};
+
+export default zh; 

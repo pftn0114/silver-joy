@@ -1,0 +1,31 @@
+const en = {
+    "home": "Home",
+    "ai-chat": "AI Chat",
+    "voice-clone": "Voice Clone",
+    "digital-talk": "Digital Talk",
+    "current-language": "English",
+    "site-title": "Silver Age Joy",
+    "hero-subtitle": "Smart Technology for Better Senior Life",
+    "start-ai-chat": "Start AI Chat",
+    "try-voice-clone": "Try Voice Clone",
+    "explore-digital-talk": "Explore Digital Talk",
+    "ai-chat-desc": "Intelligent chat assistant, always ready to help",
+    "voice-clone-desc": "Preserve precious voices, inherit beautiful memories",
+    "digital-talk-desc": "Innovative interaction experience, connecting smart life",
+    "welcome-title": "AI Assistant",
+    "welcome-subtitle": "Let's start chatting",
+    "new-chat": "New Chat",
+    "start-recording": "Start Recording",
+    "play": "Play",
+    "save": "Save",
+    "clear": "Clear",
+    "select-avatar": "Select Your Digital Avatar",
+    "start-interaction": "Start Interaction",
+    "customize-avatar": "Customize Avatar",
+    "input-placeholder": "Type your question...",
+    "thinking": "Thinking...",
+    "error-message": "Sorry, an error occurred. Please try again later.",
+    "loading": "Loading..."
+};
+
+export default en; 
